@@ -20,32 +20,30 @@
                     .getAuthInstance()
                     .signIn({
                         scope:
-                            "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.readonly",
+                            'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.readonly',
                     })
                     .then(
                         function () {
-                            console.log("Sign-in successful");
+                            console.log('Sign-in successful');
                         },
                         function (err) {
-                            console.error("Error signing in", err);
+                            console.error('Error signing in', err);
                         }
                     );
             }
             function loadClient() {
-                gapi.client.setApiKey(
-                    "AIzaSyB9rM2sv5vfNo4B2MZDgbK-tCAYg3CMiXA"
-                );
+                gapi.client.setApiKey('apikey');
                 return gapi.client
                     .load(
-                        "https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest"
+                        'https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest'
                     )
                     .then(
                         function () {
-                            console.log("GAPI client loaded for API");
+                            console.log('GAPI client loaded for API');
                         },
                         function (err) {
                             console.error(
-                                "Error loading GAPI client for API",
+                                'Error loading GAPI client for API',
                                 err
                             );
                         }
@@ -58,17 +56,16 @@
                 return gapi.client.calendar.calendarList.list({}).then(
                     function (response) {
                         // Handle the results here (response.result has the parsed body).
-                        console.log("Response", response);
+                        console.log('Response', response);
                     },
                     function (err) {
-                        console.error("Execute error", err);
+                        console.error('Execute error', err);
                     }
                 );
             }
-            gapi.load("client:auth2", function () {
+            gapi.load('client:auth2', function () {
                 gapi.auth2.init({
-                    client_id:
-                        "842881549850-onnf4bfdvjlp5vbsr04q0cf9vkd2h51o.apps.googleusercontent.com",
+                    client_id: 'client_id',
                 });
             });
         </script>
